@@ -35,7 +35,7 @@ class Json implements PacketInterface
             throw new PacketException(sprintf('The packet data is invalid. Must be a array.'));
         }
 
-        $data['salt'] = substr(md5(static::SALT), self::SALT_START, self::SALT_LENGTH);
+        $data['packet_salt'] = substr(md5(static::SALT), self::SALT_START, self::SALT_LENGTH);
 
         return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
     }
@@ -48,12 +48,12 @@ class Json implements PacketInterface
     public static function decode($data)
     {
         $data = json_decode($data, true);
-        
-        if (!isset($data['salt']) || (isset($data['salt']) && $data['salt'] !== substr(md5(static::SALT), self::SALT_START, self::SALT_LENGTH))) {
+
+        if (!isset($data['packet_salt']) || (isset($data['packet_salt']) && $data['packet_salt'] !== substr(md5(static::SALT), self::SALT_START, self::SALT_LENGTH))) {
             throw new PacketException(sprintf('The json data is validation fail.'));
         }
 
-        unset($data['salt']);
+        unset($data['packet_salt']);
 
         return $data;
     }
