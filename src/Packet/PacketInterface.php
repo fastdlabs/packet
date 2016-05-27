@@ -22,18 +22,9 @@ namespace FastD\Packet;
 interface PacketInterface
 {
     /**
-     * 是否开启数据验签
-     *
      * @const
      */
-    const OPEN_SIGN_FLAG = false;
-
-    /**
-     * 验签盐值
-     *
-     * @const
-     */
-    const SIGN_SALT = "=&$*#@(*&%(@";
+    const SALT = "=&$*#@(*&%(@";
 
     /**
      * @param $data

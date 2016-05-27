@@ -19,7 +19,7 @@ namespace FastD\Packet;
  *
  * @package FastD\Packet
  */
-class Packet implements PacketInterface
+class Binary implements PacketInterface
 {
     /**
      * @param $data
@@ -27,14 +27,11 @@ class Packet implements PacketInterface
      */
     public static function encode($data)
     {
-        $sendStr = serialize($data);
+        $data = serialize($data);
 
-        if (static::OPEN_SIGN_FLAG == true) {
-            $sign = pack('N', crc32($sendStr . static::SIGN_SALT));
-            return pack('N', strlen($sendStr) + 4) . $sign . $sendStr;
-        }
+        $sign = pack('N', crc32($data . static::SALT));
 
-        return pack('N', strlen($sendStr)) . $sendStr;
+        return pack('N', strlen($data) + 4) . $sign . $data;
     }
 
     /**
@@ -44,28 +41,27 @@ class Packet implements PacketInterface
      */
     public static function decode($str)
     {
-        $header = substr($str, 0, 4);
-        $len = unpack("Nlen", $header);
-        $len = $len["len"];
-
-        if (static::OPEN_SIGN_FLAG == true) {
+        try {
+            $header = substr($str, 0, 4);
+            $len = unpack("Nlen", $header);
+            $len = $len["len"];
 
             $code = substr($str, 4, 4);
             $result = substr($str, 8);
 
-            if (pack("N", crc32($result . static::SIGN_SALT)) != $code) {
+            if (pack("N", crc32($result . static::SALT)) != $code) {
                 throw new PacketException('Signed check error!', 100010);
             }
 
             $len = $len - 4;
 
-        } else {
-            $result = substr($str, 4);
-        }
-        if ($len != strlen($result)) {
-            return new PacketException("packet length invalid.", 100007);
-        }
+            if ($len != strlen($result)) {
+                return new PacketException("packet length invalid.", 100007);
+            }
 
-        return unserialize($result);
+            return unserialize($result);
+        } catch (\Throwable $e) {
+            throw new PacketException("Binary data is invalid.");
+        }
     }
 }
