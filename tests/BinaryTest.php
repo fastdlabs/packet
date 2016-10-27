@@ -61,7 +61,7 @@ class BinaryTest extends \PHPUnit_Framework_TestCase
 
         $binary = Binary::encode($str);
 
-        echo $binary;
+//        echo $binary;
     }
 
     /**
