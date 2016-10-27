@@ -12,9 +12,16 @@
  * WebSite: http://www.janhuang.me
  */
 
-namespace FastD\Packet;
+namespace FastD\Packet\Exceptions;
 
-class PacketException extends \Exception
+use Exception;
+
+/**
+ * Class PacketException
+ *
+ * @package FastD\Packet\Exceptions
+ */
+class PacketException extends Exception
 {
 
 }

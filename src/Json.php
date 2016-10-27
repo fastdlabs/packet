@@ -14,6 +14,8 @@
 
 namespace FastD\Packet;
 
+use FastD\Packet\Exceptions\PacketException;
+
 /**
  * Class Json
  *
