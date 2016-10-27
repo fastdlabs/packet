@@ -14,12 +14,13 @@
 
 namespace FastD\Binary\Tests;
 
+use FastD\Packet\Exceptions\PacketException;
 use FastD\Packet\Json;
 
 class JsonTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \FastD\Packet\PacketException
+     * @expectedException \FastD\Packet\Exceptions\PacketException
      */
     public function testJsonDecodeInvalidData()
     {
@@ -27,7 +28,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \FastD\Packet\PacketException
+     * @expectedException \FastD\Packet\Exceptions\PacketException
      */
     public function testJsonEncodeInvalidData()
     {

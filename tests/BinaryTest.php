@@ -15,6 +15,7 @@
 namespace FastD\Binary\Tests;
 
 use FastD\Packet\Binary;
+use FastD\Packet\Exceptions\PacketException;
 
 class BinaryTest extends \PHPUnit_Framework_TestCase
 {
@@ -76,7 +77,7 @@ class BinaryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \FastD\Packet\PacketException
+     * @expectedException \FastD\Packet\Exceptions\PacketException
      */
     public function testBinaryDecodeInvalidData()
     {
