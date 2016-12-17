@@ -15,7 +15,6 @@
 namespace FastD\Binary\Tests;
 
 use FastD\Packet\Binary;
-use FastD\Packet\Exceptions\PacketException;
 
 class BinaryTest extends \PHPUnit_Framework_TestCase
 {

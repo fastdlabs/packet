@@ -14,7 +14,6 @@
 
 namespace FastD\Binary\Tests;
 
-use FastD\Packet\Exceptions\PacketException;
 use FastD\Packet\Json;
 
 class JsonTest extends \PHPUnit_Framework_TestCase
