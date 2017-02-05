@@ -1,5 +1,12 @@
 # packet
 
+[![Build Status](https://travis-ci.org/JanHuang/packet.svg?branch=master)](https://travis-ci.org/JanHuang/packet)
+[![Latest Stable Version](https://poser.pugx.org/fastd/packet/v/stable)](https://packagist.org/packages/fastd/packet)
+[![Total Downloads](https://poser.pugx.org/fastd/packet/downloads)](https://packagist.org/packages/fastd/packet)
+[![Latest Unstable Version](https://poser.pugx.org/fastd/packet/v/unstable)](https://packagist.org/packages/fastd/packet)
+[![License](https://poser.pugx.org/fastd/packet/license)](https://packagist.org/packages/fastd/packet)
+[![composer.lock](https://poser.pugx.org/fastd/packet/composerlock)](https://packagist.org/packages/fastd/packet)
+
 PHP 数据打包、解包工具，支持二进制，json格式.
 
 ### ＃composer
