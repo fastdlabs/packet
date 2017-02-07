@@ -70,7 +70,7 @@ class BinaryTest extends \PHPUnit_Framework_TestCase
     {
         try {
             unpack("Nlen", '');
-        } catch (\Throwable $e) {
+        } catch (\Exception $e) {
             throw new \Exception('Unpack error');
         }
     }
