@@ -10,6 +10,8 @@
 namespace FastD\Packet;
 
 
+use swSerialize;
+
 /**
  * Class Swoole
  * @package FastD\Packet
