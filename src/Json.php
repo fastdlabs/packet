@@ -42,7 +42,7 @@ class Json implements PacketInterface
 
     /**
      * @param $data
-     * @return string
+     * @return array
      * @throws PacketException
      */
     public static function decode($data)
